@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <title>
+        <%= title %>
+    </title>
 </head>
+
 <body>
-    <h1>Aeropuerto cdmx</h1>
+    <nav>
+        <img class="logo1" src="../vuelo.png" alt="logo1">
+        <img class="logo2" src="../clima.png" alt="logo1">
+    </nav>
+    <header>
+        <h1>Bienvenido</h1>
+    </header>
+    <section>
+        <p>Consulta el clima de tu viaje:</p>
+        <form action="/getweather" method="POST">
+            <input id="iataCodeOrigen" type="text" name="iataCodeOrigen" placeholder="Código iata origen">
+            <input id="iataCodeDestiny" type="text" name="iataCodeDestiny" placeholder="Código iata destino">
+            <button>Obtener clima de viaje</button>
+        </form>
+    </section>
 </body>
+
 </html>

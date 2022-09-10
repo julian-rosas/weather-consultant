@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+body{
+    background-color: #e1e1e1;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo1{
+    position: absolute;
+    width: 40%;
+    top: 15%;
+    left: -2%;
+}
+
+.logo2{
+    position: absolute;
+    width: 25%;
+    top: -1%;
+    left: 63%;
+}
+
+h1{
+    font-family: "Roboto", sans-serif;
+    color: #525c66;
+    position: relative;
+    right: 179px;
+    top: 40px;
+}
+
+p{
+    position: absolute;
+    color: #525c66;
+    font-family: "Roboto", sans-serif;
+    top: 130px;
+    left: 370px;
+}
+
+form{
+    padding: 60px;
+    max-width: 400px;
+    background-color: #046193;
+    margin: 0 auto;
+    margin-top: 100px;
+
+}
+
+form input{
+    margin-bottom: 15px;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+    border: none; 
+    color: #525c66; 
+    font-size: 1em;
+    resize: none; 
+}
+
+form button {
+	display: block;
+	background-color: #0095eb;
+	padding: 10px 45px 10px 45px;
+	border: 0;
+	font-size: 1em; 
+	color: 	white;
+  font-family: "Roboto", sans-serif;
+}
+form button :hover{
+	background-color: #046193;
+}
