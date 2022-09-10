@@ -20,7 +20,11 @@
         <h1>Bienvenido</h1>
     </header>
     <section>
-        <p>Consulta el clima de tu viaje:</p>
+        <p>Consulta el clima de tu viaje: <br>
+            <strong>
+                <%= mensage %>
+            </strong>
+        </p>
         <form action="/getweather" method="POST">
             <input id="iataCodeOrigen" type="text" name="iataCodeOrigen" placeholder="Código iata origen">
             <input id="iataCodeDestiny" type="text" name="iataCodeDestiny" placeholder="Código iata destino">

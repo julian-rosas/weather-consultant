@@ -47,6 +47,12 @@ p{
     font-family: "Roboto", sans-serif;
     top: 130px;
     left: 370px;
+    margin: 5px;
+}
+
+strong{
+    color: rgb(238, 48, 48);
+    margin: 2px;
 }
 
 form{

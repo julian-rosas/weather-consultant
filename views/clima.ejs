@@ -10,21 +10,20 @@
     </title>
 </head>
 <body>
-    <h1 class="title">Clima del vuelo</h1>
+    <h1 class="title">Clima del vuelo <%= vuelo %></h1>
     
     <div class="container">
        
         <div class="card">
             <img src="../clima.png">
-            <h4>Origen:</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
-            
+            <h4>Origen: <%= nameOrigin %></h4>
+            <p>Temperatura: <%= tempOrigin %></p>
         </div>
         
         <div class="card">
             <img src="../clima.png">
-            <h4>Destino: </h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, excepturi unde?</p>
+            <h4>Destino: <%= nameDestiny %></h4>
+            <p>Temperatura: <%= tempDestiny %></p>
         </div>
     </div>
     <h4 class="instruccion">Presione ok para continuar.</h4>

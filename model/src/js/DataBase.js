@@ -4,13 +4,9 @@ const Cache = require('../js/Cache');
 
 class DataBase{
     #dict = {};
-
-
     constructor(){
         this.#generateDictionary();
     }
-
-    
 
     /**
      * Metodo privado que genera el diccionario (de tickets disponibles) para asi
@@ -19,8 +15,7 @@ class DataBase{
     #generateDictionary(){
         
         let read = new Read();
-
-        let arr = read.readFile('../files/dataset1.csv');
+        let arr = read.readFile("./model/src/files/dataset1.csv");
 
         for(let i = 0; i < arr.length; i++){
             let line = arr[i];
