@@ -1,16 +1,6 @@
-const Request = require('../js/Request');
+console.log("Hola");
+const Read = require('./Read');
 
-const tmp = new Request();
+r = new Read();
 
-async function temporal(){
-    const aux = await tmp.getWeather(25.7785, -100.107);
-
-    console.log(aux);
-}
-
-
-temporal();
-
-
-
-
+r.readFile("../files/dataset1.csv");
