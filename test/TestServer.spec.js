@@ -8,6 +8,7 @@
  * Servidor.
  */
 const app = require('../server/index');
+
 /**
  * Moduló request para testiar.
  */
@@ -16,8 +17,8 @@ const request = require('supertest');
 describe('get', () => {
     /**
      * Comprueba que el servidor
-     * reponda con estátus 200,
-     * y que el clinete se conecte de forma
+     * responda con estátus 200,
+     * y que el cliente se conecte de forma
      * correcta.
      */
     test('Debería responder con estátus 200', async ()=> {
