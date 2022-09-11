@@ -9,8 +9,8 @@
 /**
  * Modelo.
  */
-const Gestor = require('../model/src/js/Gestor');
-const gestor = new Gestor();
+const Manager = require('../model/src/js/Manager');
+const manager = new Manager();
 
 /**
  * Función index, reponde 
