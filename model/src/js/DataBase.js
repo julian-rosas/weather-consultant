@@ -1,79 +1,79 @@
 const Read = require('../js/Read');
 const Ticket = require('../js/Ticket');
-const Cache = require('../js/Cache');
 
+/**
+ * Clase que representa la base de datos de los vuelos disponibles (leídos del .csv).
+ */
 class DataBase{
-    #dict = {};
+
+    /* Diccionario que almacena los vuelos válidos del .csv, teniendo como entrada
+    *  {'CodigoIataOrigen_CodigoIataDestino' : Ticket}.
+    */
+    #db = {};
+
+    /**
+     * Constructor que genera el diccionario de la base de datos.
+     */
     constructor(){
         this.#generateDictionary();
     }
 
     /**
-     * Metodo privado que genera el diccionario (de tickets disponibles) para asi
-     * acceder a ellos en O(1), invocado por el construtor. 
+     * Metodo privado que genera el diccionario (de tickets disponibles) para así
+     * acceder a ellos en O(1), invocado por el constructor. 
      */
     #generateDictionary(){
         
         let read = new Read();
-        let arr = read.readFile("./model/src/files/dataset1.csv");
+        
+        // arreglo bidimensional que almacena la informacion del .csv
+        let csvArray = read.readFile("./model/src/files/dataset1.csv");
 
-        for(let i = 0; i < arr.length; i++){
-            let line = arr[i];
-            let iataOr = line[0];
-            let iataDes = line[1];
-            let coordOr = [line[2], line[3]];
-            let coordDes = [line[4], line[5]];
+        // se itera el arreglo bidimensional y se forma una llave y un ticket por renglon.
+        for(let row = 0; row < csvArray.length; row++){
+            let record = csvArray[row];
+            let iataOrigin = record[0];
+            let iataDestiny = record[1];
 
-            let key = iataOr + "_" + iataDes;
+            // [latitudOrigen, longitudOrigen]
+            let coordOrigin = [record[2], record[3]];
 
-            const ticket = new Ticket(iataOr,iataDes,coordOr,coordDes);
+            // [latitudDestino, longitudDestino]
+            let coordDestiny = [record[4], record[5]];
+
+            // formato de la llave del diccionario de la base de datos.
+            let key = iataOrigin + "_" + iataDestiny;
+
+            // ticket formado con los valores leidos del .csv, sirviendo como
+            // valor de la llave del diccionario de la base de datos.
+            const ticket = new Ticket(iataOrigin,iataDestiny,coordOrigin,coordDestiny);
             
-            this.#dict[key] = ticket;
+            // se agrega la entrada a la base de datos.
+            this.#db[key] = ticket;
         }
     }
 
-
-    toString(){
-        console.log(this.#dict);
-    }
-
-
+    /**
+     * Método privado que regresa true en caso de que el vuelo sea válido 
+     * (con el formato establecido como llave de la base de datos) o false en caso
+     * contrario. 
+     */
     #validTrip(iataViaje){
-        return this.#dict[iataViaje] != null;
+        return this.#db[iataViaje] != null;
     }
 
     /**
      * Metodo que va a hacerse en cargo de hacer una consulta sobre el ticket de 
-     * pasado por el usuario, si no es valido, entonces se muestra el error.
-     * @param {string} iataViaje 
+     * pasado por el usuario..
+     * @param {string} iataViaje - Código IATA del vuelo (con el formato de la llave de la base de datos).
+     * @return {Ticket} - Ticket del vuelo en caso de que sea válido, null en caso contrario. 
      */
-    consulta(iataViaje){
+    query(iataViaje){
         if(this.#validTrip(iataViaje)){
             return this.#dict[iataViaje];
         }else{
             return null;
         }
-        /*
-        if(this.#validTrip(iataViaje)){
-
-            let cache = new Cache();
-            let ticket = this.#dict[iataViaje];
-
-            let weatherOrigin = cache.findWeather(ticket.getIataOrigin());
-            let weatherDestiny = cache.findWeather(ticket.getIataDestiny());
-
-            console.log(ticket.getIataOrigin() + " " + weatherOrigin);
-            console.log(ticket.getIataDestiny() + " " + weatherDestiny);
-
-            //console.log(ticket.getIataOrigin());
-            //console.log(ticket.getIataDestiny());
-
-
-        }else{
-            console.error("Vuelo inexistente");
-        }
-        */
-
     }    
 
 }

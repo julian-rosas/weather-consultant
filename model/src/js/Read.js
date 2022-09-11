@@ -1,29 +1,55 @@
+
+/**
+ * Clase que se encarga de la lectura del .csv.
+ */
 class Read {
+    
+    /**
+     * Constructor vacío.
+     */
     constructor() { }
 
-    
+    /**
+     * Método que dado el path de un .csv, lo lee y lo convierte a un arreglo 
+     * bidimensional.
+     * @param {string} file - path del .csv a leer. 
+     * @returns {Array<string>} - arreglo bidimensional con la informacion del .csv.
+     */
     readFile(file) {
        
+        // se importa el módulo FileSystem.
         const fs = require('fs');
         
-        const contents = fs.readFileSync(file, 'utf-8');
+        // se usa el método readFileSync() del módulo FileSystem 
+        // el cual recibe el path del archivo a leer y el encoding a usar,
+        // en este caso utf-8, se retorna un string con toda la información del .csv.
+        const content = fs.readFileSync(file, 'utf-8');
         
-        let renglones = contents.split(/\r?\n/);
+        // se separa en un arreglo unidimensional por renglones el contenido.
+        let csvRows = content.split(/\r?\n/);
 
-        let data = [];
+        let finalData = [];
 
-        for(let i = 1; i < renglones.length; i++){
-            let linea = renglones[i].split(',');
+        // se itera los renglones del arreglo, convirtiendo columnas
+        // por renglon y agregandolos a finalData.
+        for(let row = 1; row < csvRows.length; row++){
             
-            let campos = [];
-
-            for(let j = 0; j < linea.length; j++){
-                campos.push(linea[j]);
+            // se separa en columnas cada renglon del .csv.
+            let line = csvRows[row].split(',');
+            
+            let csvColumns = [];
+            
+            // por cada columna, se agrega a un arreglo de columnas
+            for(let column = 0; column < line.length; column++){
+                csvColumns.push(line[column]);
             }
 
-            data.push(campos);
+            // se agrega al arreglo bidimensional cada arreglo de columnas, 
+            // representando un ticket.
+            finalData.push(csvColumns);
         }
-        return data;
+
+        return finalData;
     }    
 
 }
