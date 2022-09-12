@@ -45,6 +45,7 @@ class Cache{
         if(this.isInCache(iataCity)){
             return this.#cache[iataCity];
         }
+        return null;
     }
 
 }
