@@ -19,17 +19,17 @@ class DataBase{
     }
 
     /**
-     * Metodo privado que genera el diccionario (de tickets disponibles) para así
+     * Método privado que genera el diccionario de tickets disponibles para así
      * acceder a ellos en O(1), invocado por el constructor. 
      */
     #generateDictionary(){
         
         let read = new Read();
         
-        // arreglo bidimensional que almacena la informacion del .csv
+        // arreglo bidimensional que almacena la información del .csv
         let csvArray = read.readFile("./model/src/files/dataset1.csv");
 
-        // se itera el arreglo bidimensional y se forma una llave y un ticket por renglon.
+        // se itera el arreglo bidimensional y se forma una llave y un ticket por renglón.
         for(let row = 0; row < csvArray.length; row++){
             let record = csvArray[row];
             let iataOrigin = record[0];
@@ -63,14 +63,14 @@ class DataBase{
     }
 
     /**
-     * Metodo que va a hacerse en cargo de hacer una consulta sobre el ticket de 
-     * pasado por el usuario..
+     * Método que se hace cargo de hacer una consulta sobre el ticket de 
+     * dado por el usuario.
      * @param {string} iataViaje - Código IATA del vuelo (con el formato de la llave de la base de datos).
      * @return {Ticket} - Ticket del vuelo en caso de que sea válido, null en caso contrario. 
      */
     query(iataViaje){
         if(this.#validTrip(iataViaje)){
-            return this.#dict[iataViaje];
+            return this.#db[iataViaje];
         }else{
             return null;
         }

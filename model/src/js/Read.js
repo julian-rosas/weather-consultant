@@ -10,7 +10,7 @@ class Read {
     constructor() { }
 
     /**
-     * Método que dado el path de un .csv, lo lee y lo convierte a un arreglo 
+     * Método que dado la ruta de un .csv, lo lee y lo convierte a un arreglo 
      * bidimensional.
      * @param {string} file - path del .csv a leer. 
      * @returns {Array<string>} - arreglo bidimensional con la informacion del .csv.
