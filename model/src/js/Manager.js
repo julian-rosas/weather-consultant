@@ -60,7 +60,7 @@ class Manager{
             // se corrobora si el clima de la ciudad de origen
             // ya fue consultado antes.
             if(this.#cache.isInCache(iataOrigin)){
-                console.log("Working Cache");
+                console.log("Cache working");
                 weather[0] = this.#cache.getWeather(iataOrigin);
             }else{
 
@@ -73,7 +73,7 @@ class Manager{
             // se corrobora si el clima de la ciudad de destino
             // ya fue consultado antes.
             if(this.#cache.isInCache(iataDestiny)){
-                console.log("Working Cache");
+                console.log("Cache working");
                 weather[1] = this.#cache.getWeather(iataDestiny);
             }else{
                 

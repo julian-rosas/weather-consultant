@@ -58,19 +58,19 @@ class DataBase{
      * (con el formato establecido como llave de la base de datos) o false en caso
      * contrario. 
      */
-    #validTrip(iataViaje){
-        return this.#db[iataViaje] != null;
+    #validTrip(iataTrip){
+        return this.#db[iataTrip] != null;
     }
 
     /**
      * Método que se hace cargo de hacer una consulta sobre el ticket de 
      * dado por el usuario.
-     * @param {string} iataViaje - Código IATA del vuelo (con el formato de la llave de la base de datos).
+     * @param {string} iataTrip - Código IATA del vuelo (con el formato de la llave de la base de datos).
      * @return {Ticket} - Ticket del vuelo en caso de que sea válido, null en caso contrario. 
      */
-    query(iataViaje){
-        if(this.#validTrip(iataViaje)){
-            return this.#db[iataViaje];
+    query(iataTrip){
+        if(this.#validTrip(iataTrip)){
+            return this.#db[iataTrip];
         }else{
             return null;
         }
