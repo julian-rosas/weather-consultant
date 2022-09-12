@@ -48,7 +48,7 @@ const getWeather = async (req, res, next) => {
     if (data[0] === '') {
         res.render('index', {
             title: 'Aeropuerto CDMX',
-            mensage: "Código iata de origen o destino no válido."
+            mensage: "Vuelo no válido."
         });
         return;
     }
