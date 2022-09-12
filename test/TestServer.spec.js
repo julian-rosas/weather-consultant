@@ -10,18 +10,18 @@
 const app = require('../server/index');
 
 /**
- * Moduló request para testiar.
+ * Módulo request para testear.
  */
 const request = require('supertest');
 
 describe('get', () => {
     /**
      * Comprueba que el servidor
-     * responda con estátus 200,
+     * responda con estatus 200,
      * y que el cliente se conecte de forma
      * correcta.
      */
-    test('Debería responder con estátus 200', async ()=> {
+    test('Debería responder con estatus 200', async ()=> {
         const response = await request(app).get("/").send();
         expect(response.statusCode).toBe(200);
     });

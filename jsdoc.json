@@ -1,19 +1,24 @@
 {
-    "source": {
-      "include": [
-        "server", "test"
-      ],
-      "includePattern": ".js$",
-      "excludePattern": "(node_modules|docs)"
-    },
-    "plugins": [],
-    "templates": {
-      "cleverLinks": true,
-      "monospaceLinks": true
-    },
-    "opts": {
-      "recurse": true,
-      "destination": "./documentation",
-      "readme": "./README.md"
-    }
+  "source": {
+    "include": [
+      "app.js",
+      "test",
+      "server",
+      "routes",
+      "model",
+      "controllers"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./documentation",
+    "readme": "./README.md"
+  }
 }

@@ -43,7 +43,7 @@ const getWeather = async (req, res, next) => {
     let iataDestiny = req.body.iataCodeDestiny;
     console.log("post - " + iataOrigin);
     console.log("post - " + iataDestiny);
-    let data = await gestor.manage(iataOrigin, iataDestiny);
+    let data = await manager.manage(iataOrigin, iataDestiny);
     console.log("Petición api: " + data);
     if (data[0] === '') {
         res.render('index', {

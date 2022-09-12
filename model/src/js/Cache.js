@@ -25,10 +25,10 @@ class Cache{
     }
 
     /**
-     * Método que regresa true en caso de que la ciudad esté en el caché, false 
+     * Método que regresa 'true' en caso de que la ciudad esté en el caché, 'false' 
      * en caso contrario.
      * @param {string} iataCity - Código IATA de la ciudad. 
-     * @returns {boolean} true en caso de que la ciudad esté en el caché, false 
+     * @returns {boolean} 'true' en caso de que la ciudad esté en el caché, 'false' 
      *          en caso contrario.
      */
     isInCache(iataCity){

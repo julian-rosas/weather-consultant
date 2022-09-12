@@ -3,8 +3,8 @@ const DataBase = require('./DataBase');
 const Request = require('./Request');
 
 /**
- * Clase que se encarga de orquestrar el cache, la base de datos
- * y las requests a la API.
+ * Clase que se encarga de orquestrar el caché, la base de datos
+ * y las consultas a la API.
  */
 class Manager{
 
@@ -40,8 +40,8 @@ class Manager{
 
     /**
      * Método que se encarga de determinar si el vuelo dado es válido en la base de datos 
-     * y de consultar el caché en caso de que el clima ya se haya calculado 
-     * o realizar las consultas a la API en caso contrario.
+     * y de consultar el caché en caso de que el clima ya se haya calculado, 
+     * en caso contrario, realizar las consultas a la API.
      * @param {string} iataOrigin - Código IATA de la ciudad de origen.
      * @param {string} iataDestiny - Código IATA de la ciudad de destino.
      * @returns {Array<string>} - ['',''] si el vuelo es inválido, o bien [ClimaCiudadOrigen, ClimaCiudadDestino]
@@ -89,4 +89,4 @@ class Manager{
     }        
 }
 
-module.exports = Gestor;
+module.exports = Manager;
