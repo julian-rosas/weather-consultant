@@ -1,6 +1,6 @@
 # Proyecto01 - Web Service
 
-Programa de consultas de clima, referenciando vuelos del areopuerto de la CDMX.
+Programa de consultas de clima, referenciando vuelos del aeropuerto de la CDMX.
 
 ## Pre-requisitos.
 
