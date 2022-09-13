@@ -27,6 +27,13 @@ Tener instalado Node JS
    $ npm install
 ```
 
+3. Guardar su llave de la API OpenWeather en el archivo:
+
+```sh
+   Proyecto01/model/src/files/key.txt
+```
+
+
 ## Pruebas unitarias y documentación.
 
 1. Correr pruebas unitarias.
