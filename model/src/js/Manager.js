@@ -25,12 +25,10 @@ class Manager{
      */
     constructor(){
         const read = new Read();
-
         this.#db = new DataBase();
         this.#cache = new Cache();
         this.#request = new Request(read.readKey('./model/src/files/key.txt'));
     }
-
 
     /**
      * Método privado que, dada las coordenadas de una ciudad (longitud y latirud), 
@@ -91,7 +89,7 @@ class Manager{
         }
 
         return weather;
-    }        
+    } 
 }
 
 module.exports = Manager;
