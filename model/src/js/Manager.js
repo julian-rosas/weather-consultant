@@ -1,5 +1,6 @@
 const Cache = require('./Cache');
 const DataBase = require('./DataBase');
+const Read = require('./Read');
 const Request = require('./Request');
 
 /**
@@ -17,13 +18,17 @@ class Manager{
     /* Instancia de Request, que se encarga de realizar las consultas de climas a la API. */
     #request;
 
+
     /**
-     * Constructor que crea la base de datos y el caché. 
+     * Constructor que crea la base de datos, el caché y compruba que la llave 
+     * dada (en el archivo.txt) sea válida. 
      */
     constructor(){
+        const read = new Read();
+
         this.#db = new DataBase();
         this.#cache = new Cache();
-        this.#request = new Request();
+        this.#request = new Request(read.readKey('./model/src/files/key.txt'));
     }
 
 
@@ -33,7 +38,7 @@ class Manager{
      * el clima de la ciudad correspondiente.
      */
     async #getRequest(coordinatesCity){
-        const json = await this.#request.getWeather(coordinatesCity[0], coordinatesCity[1], null);
+        const json = await this.#request.getWeather(coordinatesCity[0], coordinatesCity[1]);
         console.log("Clima: " + json.main.temp);
         return json.main.temp;
     }
