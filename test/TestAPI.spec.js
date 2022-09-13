@@ -11,13 +11,20 @@
  */
 const fetch = require('node-fetch');
 
+
+const Read = require('../model/src/js/Read');
+
 describe('api', () => {
     /**
      * Comprueba que la API
      * responda con un estatus 200.
      */
     test('Debería responder con estatus 200', async () => {
-        const URI = `https://api.openweathermap.org/data/2.5/weather?q=London,&appid=5a1b08c966f8f65b94268d9a7e5f714d&units=metric`;
+
+        const read = new Read();
+
+        const key = read.readKey('./model/src/files/key.txt');
+        const URI = `https://api.openweathermap.org/data/2.5/weather?q=London,&appid=${key}&units=metric`;
         const reponse = await fetch(URI);
         expect(reponse.status).toBe(200);
     });
