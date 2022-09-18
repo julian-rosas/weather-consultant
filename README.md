@@ -1,10 +1,10 @@
 # Proyecto01 - Web Service
 
-Programa de consultas de clima, referenciando vuelos del aeropuerto de la CDMX.
+Programa de consultas de clima, referenciando vuelos del aeropuerto de la CDMX. Desarrollado con _JavaScript_ (versión 1.5)
 
 ## Pre-requisitos.
 
-Tener instalado Node JS
+Tener instalado Node JS (versión 16.17.0 LTS o superior)
 
 * Fedora
   ```sh
